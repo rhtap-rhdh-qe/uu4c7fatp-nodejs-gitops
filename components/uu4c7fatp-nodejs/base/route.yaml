@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: uu4c7fatp-nodejs
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: uu4c7fatp-nodejs 
+  name: uu4c7fatp-nodejs
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: uu4c7fatp-nodejs
+    weight: 100 
